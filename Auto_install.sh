@@ -100,13 +100,13 @@ echo "--Tai goi cai dat wordpress tu trang chu--------------------"
   #Xoa file tar.gz di:
 
     sudo rm -rf latest.tar.gz
-  
+  #Cai goi phu thuoc
   sudo apt-get install php5-gd libssh2-php php5-mysql -y
   #di chuyen vao file root
   cd /var/www/html/wordpress
   #copy file wp-config-sample.php -> wp-config.php
 
-   sudo mv wp-sample-config.php  wp-config.php
+   sudo cp wp-sample-config.php  wp-config.php
 
        #sua cau hinh trong file wp-config.php vua cp sang
   echo " // ** MySQL settings - You can get this info from your web host ** //"
@@ -119,21 +119,17 @@ echo "--Tai goi cai dat wordpress tu trang chu--------------------"
         echo "#/** MySQL database password */"
         echo "#define('DB_PASSWORD', '$MYSQL_PASSS');" # mac dinh : password
         #### Hien thi thong so cua database
-        echo “Database Name: ”
-                read -e dbname
-        echo “Database User: ”
-                read -e dbuser
-        echo “Database Password: ”
-                read -e dbpass
+      
 
          #### Thuc hien thay doi file wp-config.php
          # ----- sed [tùy chọn]... {script-only-if-no-other-script} [input-file]...
 
           sleep 3
+          cd /var/www/html/wordpress
           pwd
-         sudo  sed -i "s/database_name_here/$dbname/g"     var/www/html/wordpress/wp-config.php
-         sudo  sed -i "s/username_here/$dbuser/g"          var/www/html/wordpress/wp-config.php
-         sudo  sed  -i "s/password_here/$dbpass/g"            var/www/html/wordpress/wp-config.php
+         sudo  sed -i "s/database_name_here/wordpress/g"      wp-config.php
+         sudo  sed -i "s/username_here/wordpress_test/g"      wp-config.php
+         sudo  sed  -i "s/password_here/password/g"           wp-config.php
 
   #phan quyen so huu cho user tren tat ca cac thu muc
      sudo chown -R $USER:www-data *
