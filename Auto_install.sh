@@ -127,9 +127,9 @@ echo "--Tai goi cai dat wordpress tu trang chu--------------------"
           sleep 3
           cd /var/www/html/wordpress
           pwd
-         sudo  sed -i "s/database_name_here/wordpress/g"      wp-config.php
-         sudo  sed -i "s/username_here/wordpress_test/g"      wp-config.php
-         sudo  sed  -i "s/password_here/password/g"           wp-config.php
+         sudo  sed -i "s/'database_name_here'/'wordpress'/g"      wp-config.php
+         sudo  sed -i "s/'username_here'/'wordpress_test'/g"      wp-config.php
+         sudo  sed  -i "s/'password_here'/'password'/g"           wp-config.php
 
   #phan quyen so huu cho user tren tat ca cac thu muc
      sudo chown -R $USER:www-data *
